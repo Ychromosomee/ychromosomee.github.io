@@ -1,0 +1,66 @@
+def ask_question(question):
+    while True:
+        answer = input(question + " (Полностью согласен/Частично согласен/Не знаю/Частично не согласен/Полностью не согласен): ").strip().lower()
+        
+        if answer == "полностью согласен":
+            return 2
+        elif answer == "частично согласен":
+            return 1
+        elif answer == "не знаю":
+            return 0
+        elif answer == "частично не согласен":
+            return -1
+        elif answer == "полностью не согласен":
+            return -2
+        else:
+            print("Пожалуйста, выберите один из следующих ответов: Полностью согласен/Частично согласен/Не знаю/Частично не согласен/Полностью не согласен.")
+
+x = 0
+y = 0
+
+print('Это тест на политические взгляды в студсовете. Вам нужно будет выразить своё мнение относительно 10 утверждений. Нужно будет дать ответ Полностью согласен/Частично согласен/Не знаю/Частично не согласен/Полностью не согласен')
+
+question1 = "Студсовет слишком сильно прогибается под администрацию"
+x += ask_question(question1)
+
+question2 = "Студсовету следует изменить структуру комитетов"
+y += ask_question(question2)
+
+question3 = "Студсовет должен отстаивать свои решения"
+x += ask_question(question3)
+
+question4 = "Чтобы сохранить возможность помогать студентам, студсовету нужно отстаивать свою автономию"
+x += ask_question(question4)
+
+question5 = "Спикер нужен в новом студсовете"
+y += ask_question(question5)
+
+question6 = "Студсовету всегда не хватало плановой экономики"
+y += ask_question(question6)
+
+question7 = "Умирать с Музыкой"
+x += ask_question(question7)
+
+question8 = "Сделать из студсовета корпорация - отличная идея"
+y += ask_question(question8)
+
+question9 = "Глава комитета не может быть делегатом ( Да, Да, это про тебя Азаля) "
+y += ask_question(question9)
+
+question10 = "Лучше роспуск, чем продолжать работать в таком формате"
+x += ask_question(question10)
+
+import matplotlib.pyplot as plt
+
+print(x,y)
+
+plt.figure(figsize=(7, 7))
+plt.scatter(x, y, c='b', marker='o',s = 150, label='Вы')
+plt.xlim(-11, 11)
+plt.ylim(-11, 11) 
+plt.xlabel('Ось X')  
+plt.ylabel('Ось Y')  
+plt.grid(True)  
+plt.legend()  
+
+plt.show()
